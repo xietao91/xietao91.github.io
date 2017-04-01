@@ -361,7 +361,7 @@
 <ul>
 <li>GET方式会在url地址后面进行传递，而post会作为HTTP请求的消息实体中进行传送</li>
 <li>GET传递的数据量为1024字节，POST方式传输的数据量就会大很多</li>
-<li>GET传输的数据在url中是可见的，而且会被浏览器缓存起来。</li>
+<li>GET传输的数据在url中是可见的，而且会被浏览器缓存起来，存在安全隐患。</li>
 </ul>
 <p>一般情况下，请求数据无副作用，比如进行搜索时可以使用get请求，当请求有副作用时，比如有数据添加时需要使用post请求。</p>
 <h3 id="2-对闭包的理解和作用"><a href="#2-对闭包的理解和作用" class="headerlink" title="2.对闭包的理解和作用"></a>2.对闭包的理解和作用</h3><p>1)什么是闭包</p>
@@ -370,7 +370,7 @@
 <p>再利用内函数能访问上级作用域变量的特性,获取外函数中的变量,通过内函数的return,赋值给Windows的函数来间接读取修改变量.所以我觉得闭包是 JS 函数作用域的副产品.</p>
 <p>2)闭包的优点</p>
 <ul>
-<li>自执行函数也就是沙箱，可以由于其内部都是局部变量，不会造成全部变量污染。</li>
+<li>自执行函数也就是沙箱，所以由于其内部都是局部变量，不会造成全部变量污染。</li>
 <li>进行缓存， 将内部函数或者对象返回出来后。</li>
 <li>​</li>
 </ul>
@@ -404,14 +404,11 @@
 <p>3.css3部分：常见属性兼容性不错，不兼容的可以使用相应的前缀</p>
 <ul>
 <li><p>css3选择器</p>
-<ol>
-<li>基本选择器，属性选择器等等</li>
-<li>伪类选择器：nth-child()这些</li>
-<li>伪元素选择器：::first-letter这些</li>
-</ol>
+<p>基本选择器，属性选择器等等</p>
+<p>伪类选择器：nth-child()这些</p>
+<p>伪元素选择器：::first-letter这些</p>
 </li>
-<li><p>文字阴影:text-shoadow: x y 阴影 color</p>
-</li>
+<li><h3 id="文字阴影-text-shoadow-x-y-阴影-color"><a href="#文字阴影-text-shoadow-x-y-阴影-color" class="headerlink" title="文字阴影:text-shoadow: x y 阴影 color"></a>文字阴影:text-shoadow: x y 阴影 color</h3></li>
 <li><p>盒子阴影:box-shoadow: 发散方向(inset向内) x y 模糊 放大 color;模糊 放大可以省略</p>
 </li>
 <li><p>背景：</p>
@@ -423,9 +420,28 @@
 </ol>
 </li>
 <li><p>渐变:线性渐变，径向渐变</p>
-</li>
-<li><p>​</p>
-<p>​</p>
+<h3 id="5-对angular框架的认识"><a href="#5-对angular框架的认识" class="headerlink" title="5.对angular框架的认识"></a>5.对angular框架的认识</h3><p>1.angular基本认识</p>
+<ul>
+<li>angular不推崇dom操作，但内部肯定也是有dom操作的</li>
+<li>angular的双向数据绑定与Vue是不同的，angular是自己 重新写了一套编译规则来实现的，简单说使用“脏”检查来实现的，而vue是使用的es5中的getter和setter方法来实现的，故而vue的双向数据绑定效率更高，但是兼容性略差</li>
+</ul>
+<p>2.angular的优势</p>
+<ul>
+<li>JQ提高了操作DOM的开发效率，能够节省很多代码。</li>
+<li>NG几乎没有任何DOM操作（不是没有，只是不用我们自己操作）</li>
+<li>NG内置一个类似JQ的东西<code>angular.element()</code></li>
+<li>Angular 不提倡DOM操作，如果必须使用DOM的话，也不建议再去引用jquery，有内置</li>
+</ul>
+<p>3.使用angular开发的流程</p>
+<ul>
+<li>使用npm或者直接下载angular.js到本地并运用。</li>
+<li>在js代码中通过Angular.module(‘myApp’,[]);定义一个模块。</li>
+<li>在html中使用ng-app=‘myApp’引用刚才定义的模块。</li>
+<li>根据当前页面情况进行划分控制</li>
+<li>在html中通过ng-controller=’myController’作用到特定元素上</li>
+<li>在js中通过$scope来暴露需要作用到页面中的数据</li>
+<li>在html通过ng-model或者ng-click等指令将$scope暴露出来的指令作用到页面元素中去。</li>
+</ul>
 </li>
 </ul>
 
